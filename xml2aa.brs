@@ -2,19 +2,23 @@
 sub main()
 
     xmlElement = CreateObject("roXMLElement")
-      
-        if not xmlElement.ParseFile( "test.xml" ) then
-            print "BAD XML source"
-        end if
+    
+        for each file in ["test.xml", "testEmptyItems.xml", "testSingleItem.xml"]
 
-    AA = xmlElementToAA( xmlElement ) 
+                ' if not xmlElement.ParseFile( "test.xml" ) then
+                if not xmlElement.ParseFile( file ) then
+                    print "BAD XML source"
+                end if
 
-    print FormatJson(AA)
+            AA = xmlElementToAA( xmlElement, "Test" ) 
+            print FormatJson(AA)
+
+        end for
 
 end sub
 
-
-function xmlElementToAA( xmlElem as object ) as object
+' 
+function xmlElementToAA( xmlElem as object, asArray = "Item" ) as object
     aa = {}
     name$ = xmlElem.getName()
     '{ <tag name>:{ attributes... } } or {}
@@ -41,8 +45,12 @@ function xmlElementToAA( xmlElem as object ) as object
             for each child in xmlElem.GetChildElements()
                 childName$  = child.getName()
                     ' Use Array?
+                    ' Look for already existing key as indication of repeating names
                     if aa[name$].doesExist(childName$) then
+                            ' Case where there are multiple children with same name
                             if type( aa[name$][childName$] ) <> "roArray" then
+                                ' Convert aa to array
+                                ' This can only happen once
                                 temp = {}
                                 temp.append( aa[name$][childName$] )
                                 aa[name$][childName$] = []
@@ -50,7 +58,14 @@ function xmlElementToAA( xmlElem as object ) as object
                             end if
                         aa[name$][childName$].push( xmlElementToAA( child )[childName$] )
                     else
-                        aa[name$][childName$] = xmlElementToAA( child )[childName$]
+                        ' Element apparing for first time at this level
+                        ' We might want to store a name as array. Like "item"...
+                            if asArray = childName$ then
+                                ' Start an array with aa as itme
+                                aa[name$][childName$] = [ xmlElementToAA( child )[childName$] ]
+                            else 
+                                aa[name$][childName$] = xmlElementToAA( child )[childName$]
+                            end if
                     end if
             end for
 

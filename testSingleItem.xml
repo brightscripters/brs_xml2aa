@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<Tests xmlns="http://www.adatum.com">
+  <Test TestId="0001" TestType="CMD">
+    <Name>Convert number to string</Name>
+    <CommandLine>Examp1.EXE</CommandLine>
+    <Input>1</Input>
+    <Output>One</Output>
+  </Test>
+</Tests>
