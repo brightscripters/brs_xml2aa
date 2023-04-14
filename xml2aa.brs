@@ -17,7 +17,7 @@ sub main()
 
 end sub
 
-' 
+' asArray - Specify element name expected to be repeated at same level
 function xmlElementToAA( xmlElem as object, asArray = "Item" ) as object
     aa = {}
     name$ = xmlElem.getName()
