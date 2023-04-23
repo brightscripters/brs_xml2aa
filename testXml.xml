@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+<channel>
+  <title>testXml</title>
+  <link>https://cms.mls.gmbh/testXml/testXml.xml</link>
+  <generator>Video/Image/Audio MRSS Generation Batch File</generator>
+  <ttl>15</ttl>
+    <item>
+        <title>testFluss</title>
+        <pubDate>2023-03-22T21:11:51.000z</pubDate>
+        <link>https://cms.mls.gmbh/testXml/fluss.mp4</link>
+        <description>fluss.mp4</description>
+        <guid>testFluss-05042023-0174</guid>
+        <media:content url="https://cms.mls.gmbh/testXml/fluss.mp4" fileSize="76" type="video/mp4" medium="video"/>
+    </item>
+    <item>
+        <title>testSterne</title>
+        <pubDate>2023-03-22T21:11:51.000z</pubDate>
+        <link>https://cms.mls.gmbh/testXml/sterne.mp4</link>
+        <description>sterne.mp4</description>
+        <guid>testSterne-05042023-0174</guid>
+        <media:content url="https://cms.mls.gmbh/testXml/sterne.mp4" fileSize="46" type="video/mp4" medium="video"/>
+    </item>
+    <item>
+        <title>testWasserspiel</title>
+        <pubDate>2023-03-22T21:11:51.000z</pubDate>
+        <link>https://cms.mls.gmbh/testXml/wasserspiel.mp4</link>
+        <description>wasserspiel.mp4</description>
+        <guid>testWasserspiel-05042023-0174</guid>
+        <media:content url="https://cms.mls.gmbh/testXml/wasserspiel.mp4" fileSize="79" type="video/mp4" medium="video"/>
+    </item>
+    <item>
+        <title>testWellen</title>
+        <pubDate>2023-03-22T21:11:51.000z</pubDate>
+        <link>https://cms.mls.gmbh/testXml/wellen.mp4</link>
+        <description>wellen.mp4</description>
+        <guid>testWellen-05042023-0174</guid>
+        <media:content url="https://cms.mls.gmbh/testXml/wellen.mp4" fileSize="132" type="video/mp4" medium="video"/>
+    </item>
+</channel>
+</rss>
