@@ -25,7 +25,7 @@ sub main()
     obj.rss.channel  = {foo:"bar",ping:"pong"}
 
     
-    xmlElement = aaToXmlElement( obj, CreateObject("roXmlElement") )
+    xmlElement = aaToXmlElement( obj.rss, CreateObject("roXmlElement").AddElement("rss") )
     xml$ = xmlElement.genXml(true)
     print xml$
 
